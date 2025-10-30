@@ -39,10 +39,6 @@ export class AppService {
           Projection: {
             ProjectionType: "ALL", // pode ser KEYS_ONLY, INCLUDE ou ALL
           },
-          // ProvisionedThroughput: {
-          //   ReadCapacityUnits: 5,
-          //   WriteCapacityUnits: 5,
-          // },
         },
       ],
       BillingMode: "PAY_PER_REQUEST",
@@ -123,7 +119,6 @@ export class AppService {
       ExpressionAttributeValues: {
         ":status": { N: status.toString() },
         ":value": { N: value.toString() },
-        ":start_value": { N: "0" },
       },
       KeyConditionExpression: "Amount = :value",
       FilterExpression: "ProductStatus = :status",
